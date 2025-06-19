@@ -18,7 +18,7 @@ function setDateInfo() {
     ];
 
     document.getElementById("dayName").textContent = days[now.getDay()];
-    document.getElementById("dateNum").textContent = now.getDate();
+    document.getElementById("dateName").textContent = now.getDate();
     document.getElementById("monthName").textContent = months[now.getMonth()];
 }
 
@@ -57,7 +57,11 @@ function loadTask() {
     tasks.forEach((task, index) => {
         const taskDiv = document.createElement("div");
         taskDiv.className = "text";
-        taskDiv.innerHTML = `<i class="fa-solid fa-leaf"></i> <span class = "task-text">${task}</span>`;
+        taskDiv.innerHTML = `<span class = "task-text">${task}</span>`;
+        taskDiv.style.display = "flex";
+        taskDiv.style.flexDirection = "column";
+        taskDiv.style.justifyContent = "flex-end";
+        taskDiv.style.borderBottom = "1px solid black";
         taskDiv.addEventListener("click", function () {
             const span = taskDiv.querySelector(".task-text");
             span.style.textDecoration = "line-through";
