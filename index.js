@@ -71,6 +71,7 @@ function loadTask() {
             setTimeout(() => {
                 tasks.splice(index, 1);
                 localStorage.setItem("tasks", JSON.stringify(tasks));
+                localStorage.setItem('totalTasks',Number(localStorage.getItem('totalTasks'))-1);
                 loadTask();
             }, 1000);
         });
